@@ -1,4 +1,4 @@
-import { Button, LoadingOverlay, Textarea } from "@mantine/core";
+import { Button, Textarea } from "@mantine/core";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { yupResolver } from "@hookform/resolvers/yup";
