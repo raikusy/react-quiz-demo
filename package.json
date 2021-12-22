@@ -2,7 +2,6 @@
   "name": "react-quiz-test",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://raikusy.github.io/react-quiz-demo",
   "dependencies": {
     "@hookform/resolvers": "^2.8.5",
     "@mantine/core": "^3.3.5",
