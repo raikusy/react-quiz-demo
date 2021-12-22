@@ -8,9 +8,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { makeServer } from "./server";
 
-if (process.env.NODE_ENV === "development") {
-  makeServer({ environment: "development" });
-}
+makeServer({ environment: "development" });
 
 const queryClient = new QueryClient();
 

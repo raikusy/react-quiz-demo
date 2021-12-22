@@ -26,7 +26,7 @@ interface IAnswerModel extends Omit<IAnswer, "question" | "submittedBy"> {
   submittedBy: BelongsTo<"user">;
 }
 
-export function makeServer({ environment = "test" } = {}) {
+export function makeServer({ environment = "development" } = {}) {
   const server = createServer({
     environment,
 
@@ -156,12 +156,12 @@ export function makeServer({ environment = "test" } = {}) {
         };
       });
 
-      this.get("question/:id/answer", (schema, request) => {
+      this.get("/question/:id/answer", (schema, request) => {
         // const id = request.params.id;
         return schema.all("answer")
       });
 
-      this.post("question/:id/answer", (schema, request) => {
+      this.post("/question/:id/answer", (schema, request) => {
         const id = request.params.id;
         const question = schema.find('question', id);
         const attrs = JSON.parse(request.requestBody);
