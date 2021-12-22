@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import { AuthProvider } from "./hooks/useAuthRoles";
+import { QuestionsProvider } from "./hooks/useGetQuestions";
+import LoginRoute from "./routes/LoginRoute";
+import RoleBasedRoute from "./routes/RoleBasedRoute";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <AuthProvider>
+      <QuestionsProvider>
+        <div
+          style={{ minHeight: "100vh", backgroundColor: "rgb(248, 249, 250)" }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Routes>
+            <Route path="/login" element={<LoginRoute />} />
+            <Route path="/" element={<RoleBasedRoute />} />
+          </Routes>
+        </div>
+      </QuestionsProvider>
+    </AuthProvider>
   );
 }
 
